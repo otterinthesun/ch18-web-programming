@@ -1,4 +1,4 @@
-# Chapter 178 Exercises
+# Chapter 18 Exercises
 
 This repository contains programming exercises for basic web programming, 
 based on [Chapter 18](https://infx511.github.io/web-programming.html) 

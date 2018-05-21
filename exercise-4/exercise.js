@@ -15,7 +15,7 @@
 //Chain the attribute change calls to the returned value from calling `transition()`
 //on the selection to animate the ball!
 //You can call `duration()` after `transition()` to specify the speed in ms
-//(1000) looks good
+//(a value of 1000 looks good)
 
 
 //Modify the above callback so that the ball's position _toggles_ when you click
