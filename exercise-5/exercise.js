@@ -31,7 +31,16 @@ var EXAMPLE_SEARCH_RESULTS = {results:[{
 //  - an <audio> element whose `src` is the the preview url. Also give the 
 //    element a `controls` attribute with a value of `true`
 //You can test the function by calling it and passing it `EXAMPLE_SEARCH_RESULTS`.
-
+function renderTracks(tracks) {
+  var recordContainer = d3.select('#records');
+  tracks.results.forEach(function(track) {
+    var div = recordContainer.append('div');
+    div.append('img').attr('src', track.artworkUrl100);
+    div.append('p').text(track.artistName + ' - ' + track.trackName)
+    div.append('audio').attr('src', track.previewUrl).attr('controls',true)
+  })
+}
+//renderTracks(EXAMPLE_SEARCH_RESULTS)
 
 //Create a variable `searchUri` that is the URI to search iTunes for songs.
 //You will need to concatenate a URI string with the following components:
@@ -40,13 +49,20 @@ var EXAMPLE_SEARCH_RESULTS = {results:[{
 //    - an `entity` of `song` (e.g., `entity=song`)
 //    - a `term` that is a search term of your choosing.
 //Log out the variable for testing.
-
+var searchUri = "https://itunes.apple.com/search?entity=song&limit=25&term="+
+                "bowie"; //search term
+console.log(searchUri);
 
 //Define a function `downloadTracks()` that sends an AJAX request to the 
 //`searchUri`, and logs out the resulting data.
 //Remember to make the function `async` and to `await` the download to finish.
 //Call the function to test it.
-
+async function downloadTracks() {
+  var data = await d3.json(searchUri)
+  console.log(data);
+  renderTracks(data);
+}
+downloadTracks();
 
 //Modify your `downloadTracks()` function so that it calls your `renderTracks()`
 //function in order to display the live data! (Be sure to not show the example
