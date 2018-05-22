@@ -28,7 +28,8 @@ var circles = d3.select('#group1 g').selectAll('circle')
 circles.attr('fill', '#573d29')
 
 //Give the element with id `circleC` a style opacity of `1`
-d3.select('#circleC').style('opacity', '1')
+var circleC = d3.select('#circleC')
+circleC.style('opacity', '1')
 
 //Add a new <circle> element to the <svg> image with the following attributes:
 //  cx:300, cy:210, r:50
@@ -42,6 +43,7 @@ rect.remove()
 //Use the `raise()` method to move the element with id `pathA` to become the
 //last child of its parent (and so be "on top").
 //Also change its `stroke` attribute to be `'none'` (removing the stroke).
-var pathA = d3.select('#pathA').raise().attr('stroke', 'none')
+var pathA = d3.select('#pathA')
+pathA.raise().attr('stroke', 'none')
 
 
